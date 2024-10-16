@@ -1,50 +1,54 @@
-# React + TypeScript + Vite
+# ☀️ Sachiko and Komugi's weather 🌧️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project, "Sachiko and Komugi's Weather," aims to help prevent heat stroke by providing a clear visualization of the best times for Sachiko and Komugi to go for a walk. I believe that this will help them avoid the dangers of heat stroke.
 
-Currently, two official plugins are available:
+Both dogs and people can suffer from heat stroke when walking in hot weather. Older people are not only more sensitive to heat, but they are also less aware of rising temperatures and thirst. The incidence of heat stroke is higher in the elderly compared to younger adults. For dogs, the risk is even greater because, unlike humans, they cannot sweat and are covered in fur. Additionally, they walk close to the ground, where they are exposed to even more heat.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Sachiko, in her late 70s, and Komugi, an elderly dog estimated to be 11 years old, are both at a higher risk of heat stroke than I am (in my 30s). However, Sachiko is less likely to notice that she is feeling unwell due to her reduced sensory functions, and Komugi cannot express her discomfort because she is unable to communicate through language. Therefore, it is crucial to minimize the possibility of heat stroke for both of them.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+I use [OpenWeather](https://openweathermap.org/).
+Please create your own account if you don't have
 
-- Configure the top-level `parserOptions` property like this:
+1. clone this repository to your local
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+git clone https://github.com/Misa2799/weather-app-for-my-family.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. move to the repository
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+cd weather-app-for-my-family
+```
+
+3. install packages
+
+```
+npm install
+```
+
+4. run the application
+
+```
+npm start
+```
+
+The application starts running 🎉
+
+## Technology Stack
+
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
+<img src="https://img.shields.io/badge/React-75C2D9?style=for-the-badge&logo=React&logoColor=white
+">
+
+## Design by Seina Hoshika
+
+My talented UI/UX designer friend Seina created the design for this weather application! Thank you, Seina! 💐
+
+[Seina's Portfolio](https://nice-ways-992633.framer.app/)
+
+[Seina's LinkedIn](https://www.linkedin.com/in/seina-hoshika-87567a2b2/)
