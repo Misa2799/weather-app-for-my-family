@@ -1,6 +1,15 @@
+// import { useEffect, useState } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 
 export default function CurrentWeather() {
+  // const [forecastUrl, setForecastUrl] = useState(
+  //   `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${}`
+  // );
+
+  // useEffect(() => {
+  //   const response = fetch();
+  // });
+
   return (
     <div className="p-4 max-w-[1440px]">
       <section
@@ -62,7 +71,7 @@ export default function CurrentWeather() {
       <section id="dogWalkingForecast" className="mt-8 flex items-start">
         <div className="walkingDogImg mr-4 bg-orange-400 w-[45%]">
           <img
-            src=""
+            src="images/stay-1.png"
             alt="a lazy dog"
             className="rounded-l-2xl w-full w-max-[600px] h-52 object-cover object-left-top"
           />
