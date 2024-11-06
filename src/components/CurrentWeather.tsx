@@ -40,7 +40,6 @@ export default function CurrentWeather({ data }: DataProps) {
 
       <section id="dogWalkingForecast" className="mt-8 flex items-start">
         <div className="walkingDogImg mr-4 w-[45%]">
-          {/* condition: if a temperature is lower than 26, display 「ばあちゃん！散歩行こ！」and change images  */}
           {data?.currentTemp <= 26 ? (
             <img
               src="images/go.png"
