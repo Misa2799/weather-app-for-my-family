@@ -16,7 +16,7 @@ export type CurrentData = {
   timezone: number;
 };
 
-export type WeatherData = {
+export type HourlyData = {
   list: [
     {
       dt: number;
