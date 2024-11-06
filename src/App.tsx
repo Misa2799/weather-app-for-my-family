@@ -45,7 +45,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <div className="p-4 max-w-[1440px]">
+      <div className="p-4 max-w-[500px] mx-auto h-full">
         <section
           id="inputForm"
           className="flex justify-between w-full max-w-full"

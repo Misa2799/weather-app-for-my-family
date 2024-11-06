@@ -9,7 +9,7 @@ export default function CurrentWeather({ data }: DataProps) {
     <div className="p-4 max-w-[1440px]">
       <section
         id="heroContents"
-        className="flex justify-between items-center mt-8"
+        className="flex justify-between items-stretch mt-8"
       >
         <div className="currentWeather w-[55%] mr-4 flex flex-col justify-center items-center">
           <h2 className="text-2xl font-bold text-center">{data?.cityName}</h2>
@@ -29,7 +29,7 @@ export default function CurrentWeather({ data }: DataProps) {
 
         <div id="currentTemp" className="w-[45%]">
           <h1 className="text-2xl font-bold text-center">今の気温</h1>
-          <div className="currentTemFlex w-44 text-7xl font-bold flex justify-center items-center mt-10">
+          <div className="currentTemFlex w-44 text-7xl font-bold flex justify-center items-center mt-10 pt-10">
             <p className="currentTempNum">{data?.currentTemp}</p>
             <p className="currentTempSym">˚C</p>
           </div>
