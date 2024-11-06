@@ -5,6 +5,8 @@ type DataProps = {
 };
 
 export default function CurrentWeather({ data }: DataProps) {
+  const rndInt = Math.floor(Math.random() * 6) + 1;
+
   return (
     <div className="p-4 max-w-[1440px]">
       <section
@@ -38,18 +40,35 @@ export default function CurrentWeather({ data }: DataProps) {
 
       <section id="dogWalkingForecast" className="mt-8 flex items-start">
         <div className="walkingDogImg mr-4 w-[45%]">
-          <img
-            src="images/stay-1.png"
-            alt="a lazy dog"
-            className="rounded-l-2xl w-full w-max-[600px] h-52 object-cover object-left-top"
-          />
+          {/* condition: if a temperature is lower than 26, display 「ばあちゃん！散歩行こ！」and change images  */}
+          {data?.currentTemp <= 26 ? (
+            <img
+              src="images/go.png"
+              alt="dog"
+              className="rounded-l-2xl w-full w-max-[600px] h-52 object-cover object-left-top"
+            />
+          ) : (
+            <img
+              src={`images/stay-${rndInt}.png`}
+              alt="a lazy dog"
+              className="rounded-l-2xl w-full w-max-[600px] h-52 object-cover object-left-top"
+            />
+          )}
         </div>
-        {/* condition: if a temperature is lower than 26, display 「ばあちゃん！散歩行こ！」  */}
+
         <ul className="walkingCard speech-bubble relative bg-[#ffdde5] p-4 rounded-lg w-[55%] h-[160px]">
           <li>
-            <p className="cardText absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl text-center w-full ">
-              行かん...
-            </p>
+            {data?.currentTemp <= 26 ? (
+              <p className="cardText absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl text-center w-full ">
+                ばあちゃん
+                <br />
+                散歩行こ！
+              </p>
+            ) : (
+              <p className="cardText absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl text-center w-full ">
+                行かん...
+              </p>
+            )}
           </li>
           <div className="absolute w-4 h-4 bg-[#ffdde5] transform rotate-45 -left-2 top-1/2 -translate-y-1/2"></div>
         </ul>
