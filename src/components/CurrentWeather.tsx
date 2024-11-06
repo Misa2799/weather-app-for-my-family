@@ -1,14 +1,28 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import {
+  FormatCurrentData,
+  getCurrentWeather,
+} from "../services/weatherService";
+import { CurrentData, FormattedData } from "../types/types";
 
 export default function CurrentWeather() {
-  // const [forecastUrl, setForecastUrl] = useState(
-  //   `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${}`
-  // );
+  const [city, setCity] = useState("hiroshima");
+  const [currentWeatherData, setCurrentWeatherData] =
+    useState<FormattedData | null>(null);
 
-  // useEffect(() => {
-  //   const response = fetch();
-  // });
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const currentWeather: CurrentData = await getCurrentWeather(city);
+        const formattedData = FormatCurrentData(currentWeather);
+        setCurrentWeatherData(formattedData);
+      } catch (error) {
+        console.error("Error", error);
+      }
+    };
+    fetchWeather();
+  }, [city]);
 
   return (
     <div className="p-4 max-w-[1440px]">
@@ -17,7 +31,17 @@ export default function CurrentWeather() {
         className="flex justify-between w-full max-w-full"
       >
         <div className="searchForm relative flex-grow mr-4">
-          <form action="" className="searchBox">
+          <form
+            action=""
+            className="searchBox"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const input: HTMLInputElement | null =
+                e.currentTarget.querySelector("#searchCities");
+              setCity(input?.value || "hiroshima");
+              input!.value = "";
+            }}
+          >
             <div className="icon-position relative">
               <input
                 type="text"
@@ -47,29 +71,34 @@ export default function CurrentWeather() {
         className="flex justify-between items-center mt-8"
       >
         <div className="currentWeather w-[55%] mr-4 flex flex-col justify-center items-center">
-          <h2 className="text-2xl font-bold text-center">Hiroshima</h2>
+          <h2 className="text-2xl font-bold text-center">
+            {currentWeatherData?.cityName}
+          </h2>
 
           <div
             id="weatherImgDiv"
-            className="w-40 h-10 bg-[#a6cfd5] rounded-lg mt-8 text-center"
+            className="bg-[#a6cfd5] rounded-lg mt-8 text-center"
           >
-            {/* START change data with JS */}
-            <img src="" alt="" className="weatherImg" width="160" />
-            {/* END change data with JS */}
+            <img
+              src={currentWeatherData?.iconUrl}
+              alt={currentWeatherData?.description}
+              className="weatherImg"
+              width="160"
+            />
           </div>
         </div>
 
         <div id="currentTemp" className="w-[45%]">
           <h1 className="text-2xl font-bold text-center">今の気温</h1>
           <div className="currentTemFlex w-44 text-7xl font-bold flex justify-center items-center mt-10">
-            <p className="currentTempNum">10</p>
+            <p className="currentTempNum">{currentWeatherData?.currentTemp}</p>
             <p className="currentTempSym">˚C</p>
           </div>
         </div>
       </section>
 
       <section id="dogWalkingForecast" className="mt-8 flex items-start">
-        <div className="walkingDogImg mr-4 bg-orange-400 w-[45%]">
+        <div className="walkingDogImg mr-4 w-[45%]">
           <img
             src="images/stay-1.png"
             alt="a lazy dog"
@@ -77,10 +106,14 @@ export default function CurrentWeather() {
           />
         </div>
         {/* condition: if a temperature is lower than 26, display 「ばあちゃん！散歩行こ！」  */}
-        <div className="speech-bubble relative bg-[#ffdde5] p-4 rounded-lg w-[55%]">
-          <p className="text-xl text-center">行かん...</p>
+        <ul className="walkingCard speech-bubble relative bg-[#ffdde5] p-4 rounded-lg w-[55%] h-[160px]">
+          <li>
+            <p className="cardText absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl text-center w-full ">
+              行かん...
+            </p>
+          </li>
           <div className="absolute w-4 h-4 bg-[#ffdde5] transform rotate-45 -left-2 top-1/2 -translate-y-1/2"></div>
-        </div>
+        </ul>
       </section>
     </div>
   );

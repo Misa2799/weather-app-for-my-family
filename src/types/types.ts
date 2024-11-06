@@ -1,4 +1,4 @@
-export interface CurrentData {
+export type CurrentData = {
   weather: [
     {
       id: number;
@@ -14,9 +14,9 @@ export interface CurrentData {
   dt: number;
   name: string;
   timezone: number;
-}
+};
 
-export interface WeatherData {
+export type WeatherData = {
   list: [
     {
       dt: number;
@@ -42,4 +42,13 @@ export interface WeatherData {
     name: string;
     timezone: number;
   };
-}
+};
+
+export type FormattedData = {
+  cityName: string;
+  currentTemp: number;
+  hTime: number;
+  setDateTime: Date;
+  iconUrl: string;
+  description: string;
+};
