@@ -29,10 +29,16 @@ cd weather-app-for-my-family
 npm install
 ```
 
-4. run the application
+4. set .env.local
 
 ```
-npm start
+VITE_API_KEY=YOUR_OWN_AIP_KEY
+```
+
+5. run the application
+
+```
+npm run dev
 ```
 
 The application starts running 🎉
@@ -42,8 +48,9 @@ The application starts running 🎉
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
-<img src="https://img.shields.io/badge/React-75C2D9?style=for-the-badge&logo=React&logoColor=white
-">
+<!-- <img src="https://img.shields.io/badge/React-75C2D9?style=for-the-badge&logo=React&logoColor=white
+"> -->
+<img src="https://img.shields.io/badge/-React-555.svg?logo=react&style=flat">
 
 ## Design by Seina Hoshika
 
